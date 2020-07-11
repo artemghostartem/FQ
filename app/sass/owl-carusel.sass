@@ -40,3 +40,36 @@
       border-radius: 30px
     .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span 
       background: #869791
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot
+  background: none
+  width: gem(20)
+  height: gem(10)
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 0 gem(6)
+  border-top-left-radius: gem(15)  /* 100px of height + 10px of border */
+  border-top-right-radius: gem(15) /* 100px of height + 10px of border */
+  border: 2px solid #FF6500
+  border-bottom: 0
+  border-color: rgba(0,0,0,0)
+  padding-top: gem(9) !important
+  outline: none
+  &.active
+    border-color: #FF6500
+
+  span
+    display: flex
+    background: #000
+    width: gem(6)
+    height: gem(6)
+    border-radius: 100%
+    // margin: gem(0) gem(10)
+  
+
+.owl-theme .owl-dots
+  text-align: left
+  display: flex
+  flex-direction: row
+  margin-left: gem(50)
+  margin-top: gem(90) !important
