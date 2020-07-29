@@ -52,8 +52,19 @@ $(document).ready(function() {
 	    	},
 	    },
 	});
-	$('.slider_review').owlCarousel({
-	    loop:true,
+
+
+
+
+
+	// $('.slider_review').owlCarousel({
+	    
+	// });
+
+
+	var owltwo = $('.slider_review');
+	owltwo.owlCarousel({
+		loop:true,
 	    margin:0,
 	    nav:false,
 	    dots:true,
@@ -67,4 +78,36 @@ $(document).ready(function() {
 	    	}
 	    }
 	});
+	// Go to the next item
+	$('.review .next_arrow').click(function() {
+	    owltwo.trigger('next.owl.carousel');
+	})
+	// Go to the previous item
+	$('.review .prev_arrow').click(function() {
+	    // With optional speed parameter
+	    // Parameters has to be in square bracket '[]'
+	    owltwo.trigger('prev.owl.carousel', [300]);
+	})
+
+
+	// header style on scroll
+	window.onscroll = function () {
+		var screenTop = $(document).scrollTop();
+		console.log(screenTop);
+		if (screenTop > 0 ) {
+			$('.header').addClass('active');
+		} else {
+			$('.header').removeClass('active');
+		}
+	}
+
+	//menu toggle
+	$('.menu_icon, .menu-header-close, .menu-element a').on('click', function() {
+		$('.menu').toggleClass('active');	
+	})
+
+	//pagescroll2id
+	$('.menu-element a').mPageScroll2id({
+		offset:50,
+	})
 });

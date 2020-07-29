@@ -18,13 +18,30 @@ section
 	width: 100%
 	padding: 0 gem(150)
 	z-index: 5
-	box-shadow: 0px 10px 10px rgba(29, 9, 61, 0.02)
+	background: rgba(255,255,255,0)
+	box-shadow: 0px 10px 10px rgba(29, 9, 61, 0)
+	transition: all 0.3s ease
+	z-index: 9
+	.pathmiddle
+		stroke: #fff
+		transition: all 0.3s ease
 	div
 		display: flex
 		flex-direction: row
+	&.active
+		background: rgba(255,255,255,1)
+		box-shadow: 0px 10px 10px rgba(29, 9, 61, 0.02)
+		height: gem(100)
+		.pathmiddle
+			stroke: var(--color-orange)
+		a
+			color: #212529
+			&:hover
+				color: var(--color-orange)
 	.other
 		display: flex
 		flex-direction: row
+		align-items: center
 	img
 		width: 100%
 		height: 100%
@@ -32,6 +49,7 @@ section
 		display: flex
 		height: 100%
 		transition: all ease 0.3s
+
 	a:hover
 		color: var(--color-black)
 	.logo
@@ -43,6 +61,7 @@ section
 		flex-direction: column
 		align-items: center
 		margin-left: gem(87)
+		cursor: pointer
 		img
 			width: gem(38)
 			height: gem(38)
@@ -687,6 +706,15 @@ section
 	flex-direction: column
 	background: var(--color-bgr-white)
 	margin-bottom: gem(70)
+	height: 100vh
+	position: fixed
+	left: -100%
+	top: 0
+	transition: all 0.3s ease
+	width: 100%
+	z-index: 15
+	&.active
+		left: 0
 	&-header
 		display: flex
 		justify-content: space-between
@@ -705,6 +733,7 @@ section
 			height: gem(38)
 			margin-top: gem(50)
 			margin-right: gem(150)
+			cursor: pointer
 	&-element
 		display: flex
 		justify-content: center
@@ -722,24 +751,20 @@ section
 			color: var(--color-black)
 		&-line
 			display: flex
-			width: 100%
+			width: 0
 			height: gem(22)
 			position: absolute
 			top: gem(20)
-			left: gem(-1)
+			left: gem(0)
 			z-index: 5
-			img
-				display: flex
-				height: gem(22)
-				width: gem(0.1)
-				transition: all ease 0.7s
+			background: var(--color-orange)
+			transition: all 0.3s ease
 	&-element:hover
 		.menu-element-hidder
 			display: none
 			transition: all ease 7.7s
-		img
-			transform: scale(10000, 1)
-			max-height: gem(22)
+		.menu-element-line
+			width: 100%
 @media only screen and (max-width : 480px)
 	.opening
 		flex-direction: column
