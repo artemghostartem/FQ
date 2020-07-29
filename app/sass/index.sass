@@ -22,6 +22,9 @@ section
 	div
 		display: flex
 		flex-direction: row
+	.other
+		display: flex
+		flex-direction: row
 	img
 		width: 100%
 		height: 100%
@@ -35,7 +38,7 @@ section
 		display: flex
 		width: gem(90)
 		height: gem(70)
-	.menu
+	.menu_icon
 		display: flex
 		flex-direction: column
 		align-items: center
@@ -64,6 +67,7 @@ section
 .other_part
 		display: flex
 .opening
+	height: gem(900)
 	.slider
 		img
 			width: 100%
@@ -75,7 +79,7 @@ section
 	.other_part
 		display: flex
 		background: var(--color-orange)
-		width: gem(435)
+		width: gem(445)
 		align-items: flex-end
 
 .button
@@ -125,7 +129,32 @@ section
 				width: gem(10)
 				height: gem(10)
 				margin: 0
-	&-button
+	&-counter
+		display: flex
+		width: gem(37)
+		height: gem(51)
+		margin-left: gem(150)
+		margin-top: gem(140)
+		flex-direction: column
+		&-first, &-middle, &-last
+			display: flex
+			line-height: gem(18) !important
+		&-middle
+			align-self: center
+			text-shadow: var(--color-black) 0 0 gem(2)
+			font-size: gem(14)
+			line-height: gem(14) !important
+		&-last
+			align-self: flex-end
+			text-shadow: var(--color-black) 0 0 gem(2)
+	&-points
+		display: flex
+		width: gem(72)
+		height: gem(13)
+		margin-bottom: gem(48)
+		margin-left: gem(688)
+		background: var(--color-orange)
+.slider-button
 		display: flex
 		justify-content: center
 		align-items: center
@@ -133,8 +162,9 @@ section
 		width: gem(285)
 		height: gem(84)
 		background: var(--color-white)
-		right: 0
-		bottom: 0
+		right: gem(150)
+		bottom: gem(143)
+		z-index: 5
 		img
 			display: flex
 			width: gem(50)
@@ -145,23 +175,6 @@ section
 			transition: all ease 0.3s
 		span:hover
 			color: var(--color-orange)
-	&-counter
-		display: flex
-		background: var(--color-orange)
-		width: gem(36)
-		height: gem(47)
-		margin-left: gem(150)
-		margin-top: gem(140)
-		flex-direction: column
-		&-first, &-middle, &-last
-			display: flex
-	&-points
-		display: flex
-		width: gem(72)
-		height: gem(13)
-		margin-bottom: gem(48)
-		margin-left: gem(688)
-		background: var(--color-orange)
 .points
 	display: flex
 	position: absolute
@@ -192,9 +205,67 @@ section
 		display: flex
 		width: gem(1140)
 		height: gem(63)
-		background: var(--color-orange)
 		margin-left: gem(150)
 		margin-top: gem(60)
+		flex-direction: column
+		&-marker
+			display: flex
+			&-text
+				display: flex
+				align-items: center
+				span
+					line-height: gem(18)
+				span:first-child
+					margin-right: gem(5)
+			&-line
+				display: flex
+				background: var(--color-black)
+				width: gem(1)
+				height: gem(20)
+				margin: gem(5) 0 gem(5) gem(10)
+			&-one, &-two, &-three, &-four
+				display: flex
+				flex-direction: column
+				position: relative
+			&-two
+				left: gem(325)
+			&-three
+				left: gem(651)
+			&-four
+				left: gem(977)
+
+		&-bar
+			display: flex
+			height: gem(20)
+			&-point-one, &-point-two, &-point-three, &-point-four
+				display: flex
+				padding: gem(5)
+				&-core
+					display: flex
+					width: gem(10)
+					height: gem(10)
+					background: var(--color-black)
+					border-radius: gem(10)
+			&-point-one
+				padding-left: 5
+			&-point-four
+				padding-right: 0
+				&-core
+					background: var(--color-grey)
+			&-point-three
+				border-top: var(--color-black) solid gem(1)
+				border-radius: gem(10)
+				&-core
+					background: var(--color-orange)
+			&-line-one, &-line-two, &-line-three
+				display: flex
+				margin: gem(9.5) 0
+				display: flex
+				width: gem(355)
+				height: gem(1)
+				background: var(--color-black)
+			&-line-three
+				background: var(--color-grey)
 	.next_arrow
 		div
 			justify-content: flex-start
@@ -207,11 +278,19 @@ section
 		justify-content: flex-end
 		span
 			display: flex
+			transition: all ease 0.3s
 	a
 		display: flex
 		height: 100%
-	.svg
-		fill: red
+		transition: all ease 0.3s
+		svg path
+			fill: var(--color-black)
+			transition: all ease 0.3s
+.next_arrow:hover
+	a, span
+		color: var(--color-orange)
+	svg path
+		fill: var(--color-orange)
 .prev_arrow
 	display: flex
 	flex-direction: column
@@ -222,8 +301,15 @@ section
 		span
 			display: flex
 			justify-content: flex-end
-	img
+			transition: all ease 0.3s
+	svg
 		transform: rotate(180deg)
+		transition: all ease 0.3s
+.prev_arrow:hover
+	a, span
+		color: var(--color-orange)
+	svg path
+		fill: var(--color-orange)
 .list
 	display: flex
 	flex-direction: column
@@ -309,16 +395,17 @@ section
 				width: gem(89)
 				display: flex
 				justify-content: flex-start
+				cursor: pointer
 		.prev_arrow
 			div
 				width: gem(89)
 				display: flex
 				justify-content: flex-end
+				cursor: pointer
 	&-window
 		display: flex
 		flex-direction: column
 		width: gem(427)
-		margin-left: gem(150)
 		padding: gem(30)
 		margin-top: gem(55)
 		&-image
@@ -356,7 +443,8 @@ section
 					font-weight: 600
 					margin-bottom: gem(20)
 	.slider
-		position: unset
+		position: relative
+		left: gem(150)
 		height: unset
 		width: unset
 		right: unset
@@ -364,7 +452,6 @@ section
 	.item
 		display: inline-flex
 		flex-direction: row
-
 .gallery
 	display: flex
 	flex-direction: column
@@ -463,8 +550,10 @@ section
 			display: flex
 			margin: 0
 			transition: all ease 0.3s
+			text-decoration: underline
 		a:hover
 			color: var(--color-black)
+			text-decoration: none
 		a:first-child
 			margin: gem(45) 0 gem(25) 0
 		.button
@@ -593,3 +682,363 @@ section
 	background: var(--color-black)
 	span
 		color: var(--color-orange)
+.menu
+	display: flex
+	flex-direction: column
+	background: var(--color-bgr-white)
+	margin-bottom: gem(70)
+	&-header
+		display: flex
+		justify-content: space-between
+		margin-bottom: gem(70)
+		img
+			width: 100%
+		&-logo
+			display: flex
+			width: gem(90)
+			height: gem(70)
+			margin-top: gem(50)
+			margin-left: gem(150)
+		&-close
+			display: flex
+			width: gem(38)
+			height: gem(38)
+			margin-top: gem(50)
+			margin-right: gem(150)
+	&-element
+		display: flex
+		justify-content: center
+		width: 100%
+		height: gem(62)
+		position: relative
+		margin-bottom: gem(30)
+		a
+			display: flex
+			text-transform: uppercase
+			z-index: 10
+			color: rgba(0, 0, 0, 0.5)
+			transition: all ease 0.3s
+		a:hover
+			color: var(--color-black)
+		&-line
+			display: flex
+			width: 100%
+			height: gem(22)
+			position: absolute
+			top: gem(20)
+			left: gem(-1)
+			z-index: 5
+			img
+				display: flex
+				height: gem(22)
+				width: gem(0.1)
+				transition: all ease 0.7s
+	&-element:hover
+		.menu-element-hidder
+			display: none
+			transition: all ease 7.7s
+		img
+			transform: scale(10000, 1)
+			max-height: gem(22)
+@media only screen and (max-width : 480px)
+	.opening
+		flex-direction: column
+		height: unset
+		.header
+			height: unset
+			padding: gem(30) gem(15) gem(40) gem(15)
+			flex-direction: row-reverse
+			align-self: flex-start
+			.logo
+				display: none
+			.other
+				flex-direction: row-reverse
+				justify-content: space-between
+				width: 100%
+				a
+					color: var(--color-orange)
+					font-size: gem(12)
+				.menu_icon
+					margin: 0
+		.slider
+			width: gem(290)
+			height: gem(225)
+			right: unset
+			top: unset
+			align-self: flex-start
+			margin-top: gem(100)
+			margin-left: gem(15)
+			margin-right: gem(15)
+			position: absolute
+			.owl-dots
+				display: none
+			&-counter
+				display: none
+		.owl-carousel .owl-stage-outer
+			width: 100%
+			height: 100%
+		.text_part
+			position: relative
+			width: unset
+			height: unset
+			margin: 0
+			margin-top: gem(126)
+			h1, p, a, span
+				margin: 0
+				width: unset
+				height: unset
+			h1
+				font-size: gem(36)
+				margin-left: gem(35)
+				z-index: 2
+				color: var(--color-white)
+				line-height: unset
+				margin-bottom: gem(132)
+			.orange
+				font-size: gem(36)
+				line-height: unset
+				margin-top: gem(12)
+			p
+				font-size: gem(12)
+				margin-left: gem(15)
+				margin-right: gem(15)
+				line-height: gem(18)
+			a span
+				font-size: gem(14)
+				margin: 0
+			a
+				margin-top: gem(30)
+			.button
+				padding: gem(12) gem(30) gem(16) gem(30)
+				width: gem(145)
+				align-self: center
+		.other_part
+			.social
+				display: none
+			.slider-button
+				width: gem(145)
+				height: gem(49)
+				right: gem(15)
+				bottom: gem(205)
+				span
+					font-size: gem(12)
+				.slider-play
+					width: gem(29)
+					height: gem(29)
+					border-radius: gem(29)
+					margin-right: gem(13)
+					&-circle
+						width: gem(23.2)
+						height: unset
+						border-radius: gem(23.2)
+						img
+							width: gem(5.8)
+							height: gem(5.8)
+	.info
+		margin-top: gem(100)
+		&-main
+			flex-direction: column
+			.text_part
+				h2, h3, p, a
+					margin-left: gem(15)
+					margin-right: gem(15)
+					width: unset
+				h2, h3
+					font-size: gem(18)
+					line-height: unset
+				p
+					font-size: gem(14)
+					margin-bottom: gem(30)
+				h2
+					margin-bottom: gem(30)
+				h3
+					margin-bottom: gem(20)
+					line-height: gem(24)
+				.button
+					display: none
+			.other_part
+				width: unset	
+				margin: 0
+				align-items: center
+				.next_arrow
+					display: none
+			.info-photo
+				width: gem(290)
+				height: gem(201)
+		.progress
+			display: none
+	.advantages
+		margin-top: gem(100)
+		flex-direction: column-reverse
+		.text_part
+			width: unset
+			margin: 0
+			position: relative
+			h2, h3, p, a
+				margin-left: gem(15)
+				margin-right: gem(15)
+				width: unset
+			h2, h3
+				font-size: gem(18)
+				line-height: unset
+			p
+				font-size: gem(14)
+			h2
+				margin-bottom: gem(30)
+			h3
+				margin-bottom: gem(20)
+				width: gem(144)
+				line-height: gem(24)
+			.button
+				position: absolute
+				top: gem(1082)
+				align-self: center
+		.other_part
+			width: unset
+			.advantages-photo-one
+				width: gem(168)
+				height: gem(168)
+				top: gem(350)
+				left: gem(15)
+			.advantages-photo-two
+				width: gem(105)
+				height: gem(161)
+				top: gem(413)
+				left: gem(200)
+			.list
+				margin-left: gem(15)
+				margin-top: gem(218)
+				span
+					max-width: gem(215)
+	.review
+		&-top
+			flex-direction: column
+			position: relative
+			.text_part
+				h2, h3, p
+					margin-left: gem(15)
+					margin-right: gem(15)
+					width: unset
+				h2, h3
+					font-size: gem(18)
+					line-height: unset
+				p
+					font-size: gem(14)
+				h2
+					margin-bottom: gem(30)
+				h3
+					margin-bottom: gem(20)
+					line-height: gem(24)
+					width: gem(144)
+			.other_part
+				justify-content: center
+				align-items: center
+				position: absolute
+				top: gem(693)
+				.prev_arrow, .next_arrow
+					margin-top: 0
+		&-window
+			width: 100%
+			padding: gem(20)
+			margin: 0
+			&-image-one
+				width: gem(31)
+				height: gem(31)
+			&-text-massage
+				height: unset
+		.slider
+			left: 0
+			.owl-dots
+				display: none
+	.gallery
+		&-header
+			height: gem(249)
+			h2, h3
+				font-size: gem(18)
+				line-height: unset
+			h2
+				margin-top: gem(50)
+			h3
+				line-height: gem(24)
+				width: gem(153)
+			&-left
+				margin: 0
+				margin-left: gem(15)
+			&-right
+				width: gem(83)
+				height: gem(83)
+				margin-top: gem(50)
+				margin-right: gem(15)
+				div
+					border: gem(5) var(--color-white) solid
+					width:  gem(44)
+					height: gem(44)
+				div:first-child
+					width: gem(39)
+				div:last-child
+					height: gem(39)
+		&-body
+			&-all
+				top: gem(-64)
+				flex-direction: column
+				align-items: center
+				&-left, &-middle, &-right
+					display: flex
+					flex-direction: column
+					img
+						width: 100%
+					&-first, &-second, &-last
+						width: gem(290)
+						padding: 0
+					&-first
+						padding-top: 0
+					&-last
+						padding-bottom: 0
+				&-left
+					&-first, &-second, &-last
+						margin-bottom: gem(20)
+				&-middle
+					&-first
+						margin-bottom: gem(20)
+				&-right
+					display: none
+	.contacts
+		flex-direction: column
+		padding-bottom: gem(50)
+		.text_part
+			width: unset
+			h2, h3, p
+				margin-left: gem(15)
+				margin-right: gem(15)
+				width: unset
+			h2, h3
+				font-size: gem(18)
+				line-height: unset
+			p
+				font-size: gem(14)
+			h2
+				margin-bottom: gem(30)
+			h3
+				margin-bottom: gem(20)
+				line-height: gem(24)
+			.social
+				margin-left: gem(15)
+		.tel-mail
+			margin-left: gem(15)
+			a:first-child
+				margin: gem(25) 0
+		.form_part
+			width: unset
+			form
+				flex-direction: column
+				align-items: center
+				margin-right: 0
+				margin-top: gem(50)
+				label
+					margin-right: 0
+					width: gem(290)
+	.footer
+		display: none
+	.menu
+		display: none
+	
