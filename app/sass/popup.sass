@@ -7,7 +7,6 @@
 	position: relative
 	display: flex
 	width: gem(871)
-	height: gem(900)
 	background: var(--color-white)
 	.popup
 		display: flex
@@ -16,6 +15,13 @@
 		&-header
 			display: flex
 			margin-bottom: gem(100)
+		&-questions
+			font-size: gem(48)
+			line-height: gem(62)
+		&-description
+			font-size: gem(16)
+			line-height: gem(24)
+			width: gem(398)
 		img
 			width: gem(90)
 			height: gem(70)
@@ -32,7 +38,41 @@
 				display: flex
 				margin: 0
 				button
-					margin-top: gem(75)
+					margin-top: gem(40)
+@media only screen and (max-width : 480px)
+	#small-dialog
+		width: gem(320)
+		padding: gem(20) gem(15) gem(50) gem(15)
+		.popup
+			img
+				width: gem(40)
+				height: gem(31)
+			&-header
+				margin-bottom: gem(30)
+			&-questions
+				font-size: gem(18)
+				line-height: gem(24)
+			&-description
+				font-size: gem(14)
+				line-height: gem(21)
+				width: gem(290)
+			.form_part
+				margin-top: gem(35)
+				form
+					label
+						width: gem(290)
+						margin-right: 0
+					.button
+						width: gem(122)
+						height: gem(49)
+						padding: 0
+						margin: 0 auto
+						span
+							font-size: gem(14)
+							line-height: gem(21)
+		button.mfp-close
+			right: gem(15)
+
 
 /**
  * Fade-zoom animation for first dialog
