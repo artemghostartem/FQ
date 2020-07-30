@@ -41,7 +41,6 @@ section
 	.other
 		display: flex
 		flex-direction: row
-		align-items: center
 	img
 		width: 100%
 		height: 100%
@@ -62,7 +61,7 @@ section
 		align-items: center
 		margin-left: gem(87)
 		cursor: pointer
-		img
+		svg
 			width: gem(38)
 			height: gem(38)
 		span
@@ -87,6 +86,7 @@ section
 		display: flex
 .opening
 	height: gem(900)
+	background: var(--color-bgr-white)
 	.slider
 		img
 			width: 100%
@@ -170,7 +170,7 @@ section
 		display: flex
 		width: gem(72)
 		height: gem(13)
-		margin-bottom: gem(48)
+		margin-top: gem(40)
 		margin-left: gem(688)
 		background: var(--color-orange)
 .slider-button
@@ -200,11 +200,13 @@ section
 	top: gem(824)
 	right: 0	
 .info
-	margin-top: gem(200)
+	margin-bottom: gem(150)
 	flex-direction: column
+	background: var(--color-white)
 	&-main
 		display: flex
 		flex-direction: row
+		margin-top: gem(200)
 		&-photo
 			width: gem(641)
 			height: gem(444)
@@ -247,11 +249,11 @@ section
 				flex-direction: column
 				position: relative
 			&-two
-				left: gem(325)
+				left: gem(326)
 			&-three
-				left: gem(651)
+				left: gem(653)
 			&-four
-				left: gem(977)
+				left: gem(979)
 
 		&-bar
 			display: flex
@@ -333,7 +335,7 @@ section
 	display: flex
 	flex-direction: column
 	margin-left: gem(150)
-	margin-top: gem(697)
+	margin-top: gem(497)
 	&-element
 		display: flex
 		align-items: center
@@ -359,13 +361,14 @@ section
 .advantages
 	position: relative
 	padding-bottom: gem(100)
+	margin-top: gem(50)
+	background: var(--color-white)
 	.other_part
 		width: gem(812)
 	&-photo
 		display: flex
 		&-one
 			position: absolute
-			top: gem(200)
 			left: gem(150)
 			width: gem(427)
 			height: gem(427)
@@ -374,7 +377,7 @@ section
 				width: 100%
 		&-two
 			position: absolute
-			top: gem(318)
+			top: gem(118)
 			left: gem(597)
 			width: gem(215)
 			height: gem(329)
@@ -382,7 +385,7 @@ section
 				width: 100%
 	.text_part
 		width: gem(628)
-		margin-top: gem(517)
+		margin-top: gem(317)
 		margin-right: gem(150)
 		p
 			width: gem(390)
@@ -393,6 +396,8 @@ section
 .review
 	display: flex
 	flex-direction: column
+	background: var(--color-bgr-white)
+	margin-bottom: gem(50)
 	&-top
 		display: flex
 		flex-direction: row
@@ -427,15 +432,20 @@ section
 		width: gem(427)
 		padding: gem(30)
 		margin-top: gem(55)
+		background: var(--color-white)
+		box-shadow: 0 0 gem(25) rgba(233, 233, 233, 0.5)
+		border-radius: gem(3)
 		&-image
 			display: flex
 			flex-direction: column
+			position: relative
 			&-one
 				display: flex
 				width: gem(40)
 				height: gem(40)
-				align-self: flex-end
-				margin-bottom: gem(10)
+				position: absolute
+				right: gem(58)
+				top: gem(-50)
 				img
 					width: 100%
 			&-two
@@ -474,11 +484,14 @@ section
 .gallery
 	display: flex
 	flex-direction: column
+	margin-top: gem(50)
+	background: var(--color-bgr-white)
 	&-header
 		display: flex
 		background: var(--color-orange)
 		height: gem(589)
 		justify-content: space-between
+		margin-top: gem(70)
 		&-left
 			display: flex
 			margin-left: gem(150)
@@ -549,8 +562,11 @@ section
 	flex-direction: row
 	justify-content: space-between
 	padding-bottom: gem(191)
+	background: var(--color-white)
+	margin-top: gem(50)
 	.text_part
 		width: gem(560)
+		margin-top: gem(50)
 		p
 			margin-bottom: 0
 		.social
@@ -581,6 +597,7 @@ section
 .form_part
 	width: gem(720)
 	flex-direction: column
+	margin-top: gem(50)
 	form
 		display: flex
 		flex-direction: row
@@ -618,9 +635,9 @@ section
 				color: #fff
 .footer
 	display: flex
-	height: gem(692)
 	position: relative
 	justify-content: flex-end
+	background: var(--color-white)
 	&-info
 		display: flex
 		flex-direction: column
@@ -670,7 +687,7 @@ section
 	&-map
 		display: flex
 		width: gem(1005)
-		height: gem(692)
+		height: gem(462)
 .slider
 	&-play
 		display: flex
@@ -713,6 +730,10 @@ section
 	transition: all 0.3s ease
 	width: 100%
 	z-index: 15
+	&-all
+		display: flex
+		flex-direction: column
+		justify-content: center
 	&.active
 		left: 0
 	&-header
@@ -769,6 +790,7 @@ section
 	.opening
 		flex-direction: column
 		height: unset
+		margin-bottom: gem(50)
 		.header
 			height: unset
 			padding: gem(30) gem(15) gem(40) gem(15)
@@ -819,6 +841,7 @@ section
 				color: var(--color-white)
 				line-height: unset
 				margin-bottom: gem(132)
+				pointer-events: none
 			.orange
 				font-size: gem(36)
 				line-height: unset
@@ -860,7 +883,8 @@ section
 							width: gem(5.8)
 							height: gem(5.8)
 	.info
-		margin-top: gem(100)
+		margin-top: gem(50)
+		margin-bottom: gem(50)
 		&-main
 			flex-direction: column
 			.text_part
@@ -893,7 +917,7 @@ section
 		.progress
 			display: none
 	.advantages
-		margin-top: gem(100)
+		margin-top: gem(50)
 		flex-direction: column-reverse
 		.text_part
 			width: unset
@@ -936,10 +960,12 @@ section
 				span
 					max-width: gem(215)
 	.review
+		margin-top: gem(50)
 		&-top
 			flex-direction: column
 			position: relative
 			.text_part
+				margin-top: gem(50)
 				h2, h3, p
 					margin-left: gem(15)
 					margin-right: gem(15)
@@ -951,6 +977,7 @@ section
 					font-size: gem(14)
 				h2
 					margin-bottom: gem(30)
+					margin-top: 0
 				h3
 					margin-bottom: gem(20)
 					line-height: gem(24)
@@ -969,12 +996,15 @@ section
 			&-image-one
 				width: gem(31)
 				height: gem(31)
+				top: gem(-36)
 			&-text-massage
 				height: unset
 		.slider
 			left: 0
-			.owl-dots
-				display: none
+			margin-top: gem(30)
+			.owl-theme .owl-dots
+				margin-top: gem(4)
+    			margin-left: gem(688)
 	.gallery
 		&-header
 			height: gem(249)
@@ -1065,5 +1095,4 @@ section
 	.footer
 		display: none
 	.menu
-		display: none
 	
