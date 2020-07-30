@@ -108,6 +108,6 @@ $(document).ready(function() {
 
 	//pagescroll2id
 	$('.menu-element a').mPageScroll2id({
-		offset:50,
+		offset:0,
 	})
 });
