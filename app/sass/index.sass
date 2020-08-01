@@ -228,13 +228,13 @@ section
 			width: gem(216)
 	.progress
 		display: flex
-		width: gem(1140)
-		height: gem(63)
-		margin-left: gem(150)
-		margin-top: gem(60)
 		flex-direction: column
+		justify-content: center
 		&-marker
 			display: flex
+			width: 100%
+			margin-left: gem(150)
+			margin-top: gem(60)
 			&-text
 				display: flex
 				align-items: center
@@ -251,46 +251,45 @@ section
 			&-one, &-two, &-three, &-four
 				display: flex
 				flex-direction: column
-				position: relative
-			&-two
-				left: gem(326)
-			&-three
-				left: gem(653)
+				width: gem(90)
+				margin-right: gem(285)
 			&-four
-				left: gem(979)
+				margin-right: 0
 
 		&-bar
 			display: flex
-			height: gem(20)
+			width: 100%
+			height: gem(63)
+			margin-left: gem(150)
 			&-point-one, &-point-two, &-point-three, &-point-four
 				display: flex
 				padding: gem(5)
 				&-core
-					display: flex
-					width: gem(10)
-					height: gem(10)
-					background: var(--color-black)
-					border-radius: gem(10)
+                    display: flex
+                    width: gem(10)
+                    height: gem(10)
+                    background: var(--color-black)
+                    border-radius: gem(10)
+				&-core.orange
+					background: var(--color-orange)
+				&-core.grey
+                	background: var(--color-grey)
 			&-point-one
 				padding-left: 5
 			&-point-four
 				padding-right: 0
-				&-core
-					background: var(--color-grey)
 			&-point-three
 				border-top: var(--color-black) solid gem(1)
 				border-radius: gem(10)
-				&-core
-					background: var(--color-orange)
-			&-line-one, &-line-two, &-line-three
-				display: flex
-				margin: gem(9.5) 0
-				display: flex
-				width: gem(355)
-				height: gem(1)
-				background: var(--color-black)
-			&-line-three
-				background: var(--color-grey)
+			&-line
+                display: flex
+                margin: gem(9.5) 0
+                display: flex
+                width: gem(355)
+                height: gem(1)
+                background: var(--color-black)
+			&-line.grey
+                background: var(--color-grey)
 	.next_arrow
 		div
 			justify-content: flex-start
